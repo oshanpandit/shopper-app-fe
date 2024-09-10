@@ -17,6 +17,8 @@ const Add_Product = () => {
         <div className="page-container">
             <div className="header">
                 <h1 className="header-title">Product Management System</h1>
+                <h5> Only the admin has the access to add a product to this app</h5>
+                <h6>Contact admin: oshanpandit@gmail.com</h6>
             </div>
             <div className="add-product-container">
                 <h2 className="form-title">Add New Product</h2>

@@ -4,7 +4,7 @@ export const getAllProducts=async()=>{
         if(!response.ok){
             throw new Error('Network response not ok');
         }
-        const data=response.json();
+        const data=await response.json();
         return data;
     }catch(error){
         console.error('Could not fetch the products',error);
@@ -32,6 +32,7 @@ export const addProduct=async(obj)=>{
    }
 }
 
+// cart API
 export const getAllCartItems=async()=>{
     try{
         const response=await fetch('http://localhost:8000/cart');
@@ -46,16 +47,70 @@ export const getAllCartItems=async()=>{
     }
 }
 
-export const addItemToCart = async (id) => {
-    try {
-        const response = await fetch(`http://localhost:8000/cart/${id}`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+export const addItemToCart = async (obj) => {
+    try{
+        const response=await fetch('http://localhost:8000/cart/add-item',{
+          method:'POST',
+          headers:{
+              'Content-type':'application/json'
+          },
+          body:JSON.stringify(obj)
+        });
+        if(!response.ok){
+           throw new Error('Network response not ok');
         }
-        const data = await response.json();
+        const data=await response.json();
         return data;
-    } catch (error) {
+     } catch (error) {
         console.error('Could not add product to the cart', error);
         return error;
     }
 };
+
+export const deleteCartItem = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:8000/cart/${id}`, {
+        method: 'DELETE', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      return data; 
+    } catch (error) {
+      console.error('Could not delete the product from the cart', error);
+      return error; 
+    }
+  };
+
+  export const checkoutCart=async()=>{
+     try{
+       const response=await fetch('http://localhost:8000/cart/checkout');
+       if(!response.ok){
+         throw new Error('Network response not ok');
+       }
+       return response;
+     }catch(error){
+       console.error('Could not process the checkout method',error);
+       return error;
+     }
+  };
+
+  export const getAllOrders=async()=>{
+    try{
+      const response=await fetch('http://localhost:8000/cart/orders');
+      if(!response.ok){
+        throw new Error('Network response not ok');
+      }
+      const data=await response.json();
+      return data;
+    }catch(error){
+      console.error('Could not get orders',error);
+      return error;
+    }
+  }
