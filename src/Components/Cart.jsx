@@ -12,12 +12,17 @@ const Cart = () => {
     getCartList();
   }, []);
 
+  const fetchCartIems=async()=>{
+    const cartItems = await getAllCartItems();
+    setCartItemList(cartItems);
+  }
+
   const addItem = async (product) => {
     const response = await addItemToCart(product);
     if (response) {
       const updatedCartList = cartItemList.map((item) => {
-        if (item._id === product._id) {
-          return { ...item, quantity: item.quantity + 1 };
+        if (item.productId._id === product.productId._id) {
+          return { ...item, productId:product.productId,quantity:item.quantity + 1 };
         }
         return item;
       });
@@ -28,19 +33,7 @@ const Cart = () => {
   const removeItem = async (_id) => {
     const response = await deleteCartItem(_id);
     if (response) {
-      setCartItemList((prevCartItemList) => {
-        return prevCartItemList.reduce((updatedList, item) => {
-          if (item._id === _id) {
-            if (item.quantity > 1) {
-              item.quantity--;
-              updatedList.push(item);
-            }
-          } else {
-            updatedList.push(item);
-          }
-          return updatedList;
-        }, []);
-      });
+        fetchCartIems();
     }
   };
 
@@ -52,7 +45,7 @@ const Cart = () => {
   };
 
   const totalProducts = cartItemList.length;
-  const totalAmount = cartItemList.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalAmount = cartItemList.reduce((acc, item) => acc + item.productId.price * item.quantity, 0);
 
   return (
     <div className="cart-page">
@@ -72,11 +65,11 @@ const Cart = () => {
               {cartItemList.map((item) => (
                 <div className="cart-item" key={item._id}>
                   <div className="item-details">
-                    <span className="item-title">{item.title}</span>&nbsp;&nbsp;
-                    <span className="item-price">${item.price}</span>
+                    <span className="item-title">{item.productId.title}</span>&nbsp;&nbsp;
+                    <span className="item-price">${item.productId.price}</span>
                   </div>
                   <div className="quantity-controls">
-                    <button className="counter-button" onClick={() => removeItem(item._id)}>-</button>
+                    <button className="counter-button" onClick={() => removeItem(item.productId._id)}>-</button>
                     <span className="quantity">{item.quantity}</span>
                     <button className="counter-button" onClick={() => addItem(item)}>+</button>
                   </div>

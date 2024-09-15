@@ -24,7 +24,7 @@ const Products = () => {
     };
 
     const checkCartQuantity = (_id) => {
-        const cartItem = cartItemList.find((item) => item._id === _id);
+        const cartItem = cartItemList.find((item) => item.productId._id.toString() === _id.toString());
         return cartItem ? cartItem.quantity : 0;
     };
 
@@ -42,11 +42,11 @@ const Products = () => {
                             Add Item To Cart
                         </button>
                     </div>
-                    {checkCartQuantity(product._id) > 0 && (
+            
                         <div className="cart-badge">
                             {checkCartQuantity(product._id)} Added
                         </div>
-                    )}
+                    
                 </div>
             ))}
         </div>

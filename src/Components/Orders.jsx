@@ -7,6 +7,7 @@ const Orders = () => {
   useEffect(() => {
     const getOrders = async () => {
       const orders = await getAllOrders();
+      console.log(orders);
       setOrderList(orders);
     };
     getOrders();
@@ -28,13 +29,13 @@ const Orders = () => {
             </div>
 
             <ul className="order-items">
-              {order.items.map(item => (
-                <li className="order-item" key={item._id}>
+              {order.products.map(item => (
+                <li className="order-item" key={item.productData._id}>
                   <div className="product-info">
-                    <span className="product-title">{item.title}</span>
+                    <span className="product-title">{item.productData.title}</span>
                   </div>
                   <div className="product-quantity">Qty: {item.quantity}</div>
-                  <div className="product-price">${item.price}</div>
+                  <div className="product-price">${item.productData.price}</div>
                 </li>
               ))}
             </ul>
@@ -43,10 +44,10 @@ const Orders = () => {
               Total: 
               <span className="total-price">
                 $
-                {order.items.reduce(
-                  (acc, item) => acc + item.price * item.quantity,
-                  0
-                )}
+                {order.products.reduce(
+  (acc, item) => acc + item.productData.price * item.quantity,
+  0
+)}
               </span>
             </div>
           </div>
