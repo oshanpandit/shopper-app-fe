@@ -35,6 +35,7 @@ const Products = () => {
                     <img src='./product_placeholder.png' className="card-img-top" alt={product.title} />
                     <div className="card-body">
                         <h5 className="card-title">{product.title}</h5>
+                        <h6 className="cad-title">Category: {product.category}</h6>
                         <p className="card-description">{product.description}</p>
                         <p className="card-price">${product.price}</p>
                         <p className="card-rating">Rating: {product.rating}</p>

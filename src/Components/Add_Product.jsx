@@ -41,6 +41,23 @@ const Add_Product = () => {
                             required
                         />
                     </div>
+                    <div className="form-dropdown">
+                      <label htmlFor="category">Category</label>
+                      <select id="category" name="category" required>
+                      <option value="">Select a category</option>
+                      <option value="electronics">Electronics</option>
+                      <option value="groceries">Groceries</option>
+                      <option value="fashion">Fashion</option>
+                      <option value="home-appliances">Home Appliances</option>
+                      <option value="books">Books</option>
+                      <option value="furniture">Furniture</option>
+                      <option value="beauty">Beauty & Personal Care</option>
+                      <option value="sports">Sports & Fitness</option>
+                      <option value="toys">Toys & Games</option>
+                      <option value="automotive">Automotive</option>
+                      <option value="others">Others</option>
+                 </select>
+              </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
                         <textarea
