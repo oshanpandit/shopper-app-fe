@@ -9,6 +9,7 @@ import Products from './Components/Products.jsx';
 import Cart from './Components/Cart.jsx';
 import Orders from './Components/Orders.jsx';
 import Add_Product from './Components/Add_Product.jsx';
+import Login from './Components/Login.jsx';
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,9 @@ const router = createBrowserRouter([
       {
         path: 'add-product',
         element: <Add_Product />
+      },{
+        path:'login',
+        element:<Login/>
       }
     ]
   }

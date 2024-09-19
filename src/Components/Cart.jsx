@@ -17,16 +17,10 @@ const Cart = () => {
     setCartItemList(cartItems);
   }
 
-  const addItem = async (product) => {
-    const response = await addItemToCart(product);
+  const addItem = async (productId) => {
+    const response = await addItemToCart(productId);
     if (response) {
-      const updatedCartList = cartItemList.map((item) => {
-        if (item.productId._id === product.productId._id) {
-          return { ...item, productId:product.productId,quantity:item.quantity + 1 };
-        }
-        return item;
-      });
-      setCartItemList(updatedCartList);
+      fetchCartIems();
     }
   };
 
@@ -71,7 +65,7 @@ const Cart = () => {
                   <div className="quantity-controls">
                     <button className="counter-button" onClick={() => removeItem(item.productId._id)}>-</button>
                     <span className="quantity">{item.quantity}</span>
-                    <button className="counter-button" onClick={() => addItem(item)}>+</button>
+                    <button className="counter-button" onClick={() => addItem(item.productId._id)}>+</button>
                   </div>
                 </div>
               ))}

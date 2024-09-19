@@ -15,8 +15,8 @@ const Products = () => {
         fetchData();
     }, []);
 
-    const handleAddToCart = async (product) => {
-        const response = await addItemToCart(product);
+    const handleAddToCart = async (productId) => {
+        const response = await addItemToCart(productId);
         if (response) {
             const updatedCartListData = await getAllCartItems();
             setCartItemList(updatedCartListData);
@@ -39,7 +39,7 @@ const Products = () => {
                         <p className="card-description">{product.description}</p>
                         <p className="card-price">${product.price}</p>
                         <p className="card-rating">Rating: {product.rating}</p>
-                        <button className="btn btn-primary" onClick={() => handleAddToCart(product)}>
+                        <button className="btn btn-primary" onClick={() => handleAddToCart(product._id)}>
                             Add Item To Cart
                         </button>
                     </div>

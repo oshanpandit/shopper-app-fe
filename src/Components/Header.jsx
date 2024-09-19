@@ -11,6 +11,7 @@ const Header=()=>{
             <NavLink to="cart" className={({ isActive }) => (isActive?'active-link':'inactive-link')}>Cart</NavLink>
             <NavLink to="orders" className={({ isActive }) => (isActive?'active-link':'inactive-link')}>Orders</NavLink>
             <NavLink to="add-product" className={({ isActive }) => (isActive?'active-link':'inactive-link')}>Add Product</NavLink>
+            <NavLink to="login" className={({ isActive }) => (isActive?'active-link':'inactive-link')}>Login</NavLink>
         </nav>
         <div className="profile">
             N

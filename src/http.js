@@ -47,15 +47,9 @@ export const getAllCartItems=async()=>{
     }
 }
 
-export const addItemToCart = async (obj) => {
+export const addItemToCart = async (productId) => {
     try{
-        const response=await fetch('http://localhost:8000/cart/add-item',{
-          method:'POST',
-          headers:{
-              'Content-type':'application/json'
-          },
-          body:JSON.stringify(obj)
-        });
+        const response=await fetch(`http://localhost:8000/cart/add-item/${productId.toString()}`);
         if(!response.ok){
            throw new Error('Network response not ok');
         }
@@ -113,4 +107,24 @@ export const deleteCartItem = async (id) => {
       console.error('Could not get orders',error);
       return error;
     }
+  }
+
+  export const userLogin=async(credentials)=>{
+     try{
+      const response=await fetch('http://localhost:8000/auth/login',{
+        method:'POST',
+        headers:{
+          'Content-type':'application/json'
+        },
+        credentials: 'include',
+        body:JSON.stringify(credentials)
+      });
+      if(!response.ok){
+        throw new Error('Network response was not ok');
+      }
+
+      return response;
+     }catch(error){
+       console.error('can not login user',error);
+     }
   }
