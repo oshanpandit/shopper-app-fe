@@ -6,7 +6,7 @@ const Shop = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-text">
-          <h1>Welcome to the Amazing Shop!</h1>
+          <h1>Welcome to the Shopper App!</h1>
           <p>Discover the best deals and categories just for you.</p>
         </div>
       </section>
@@ -59,7 +59,7 @@ const Shop = () => {
 
       {/* Amazon Prime Movies */}
       <section className="movies-section">
-        <h2>Amazon Prime Video - Popular Movies</h2>
+        <h2>Shopper Prime Video - Popular Movies</h2>
         <div className="movies-grid">
           <div className="movie-item">
             <img src="/images/movie-1.jpg" alt="Movie 1" />
@@ -82,7 +82,7 @@ const Shop = () => {
 
       {/* Footer */}
       <footer className="footer-section">
-        <p>© 2024 Amazing Shop - All Rights Reserved</p>
+        <p>© 2024 Shopper App - All Rights Reserved</p>
       </footer>
     </div>
   );
