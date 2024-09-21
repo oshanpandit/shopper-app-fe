@@ -1,8 +1,13 @@
 import { userLogin } from "../http";
 import { useRef } from "react";
+import { useAuth } from "../Context/authContext";
+import { useNavigate } from 'react-router-dom';
+
 const Login=()=>{
 
     const formRef=useRef();
+    const {setIsLoggedIn}=useAuth();
+    const navigate = useNavigate();
 
     const handleLoginSubmit=async(event)=>{
         event.preventDefault();
@@ -12,6 +17,8 @@ const Login=()=>{
         console.log(response);
         if(response){
             formRef.current.reset();
+            setIsLoggedIn(true);
+            navigate('/');
         }
     }
     return(
@@ -29,7 +36,7 @@ const Login=()=>{
                     </div>
                     <button type="submit" className="btn btn-primary">Login</button>
                     <div className="forgot-password">
-                        <a href="#">Forgot password?</a>
+                        <a>Forgot password?</a>
                     </div>
                 </form>
             </div>

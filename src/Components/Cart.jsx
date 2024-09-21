@@ -3,11 +3,12 @@ import { getAllCartItems, addItemToCart, deleteCartItem, checkoutCart } from "..
 
 const Cart = () => {
   const [cartItemList, setCartItemList] = useState([]);
+  const [errorStatus,setError]=useState({});
 
   useEffect(() => {
     const getCartList = async () => {
-      const cartItems = await getAllCartItems();
-      setCartItemList(cartItems);
+      const response = await getAllCartItems();
+      setCartItemList(response);
     };
     getCartList();
   }, []);

@@ -10,6 +10,7 @@ import Cart from './Components/Cart.jsx';
 import Orders from './Components/Orders.jsx';
 import Add_Product from './Components/Add_Product.jsx';
 import Login from './Components/Login.jsx';
+import { AuthProvider } from './Context/authContext.jsx';
 
 
 const router = createBrowserRouter([
@@ -45,7 +46,10 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
+
+  <AuthProvider>
   <RouterProvider router={router}>
     <App />
-  </RouterProvider>,
+  </RouterProvider>
+  </AuthProvider>
 )
