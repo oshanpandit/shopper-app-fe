@@ -1,24 +1,28 @@
 import { userLogin } from "../http";
-import { useRef } from "react";
+import { useRef,useState} from "react";
 import { useAuth } from "../Context/authContext";
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+
 
 const Login=()=>{
 
     const formRef=useRef();
     const {setIsLoggedIn}=useAuth();
     const navigate = useNavigate();
+    const [error,setError]=useState('');
 
     const handleLoginSubmit=async(event)=>{
         event.preventDefault();
         const formData=new FormData(event.target);
         const formObject=Object.fromEntries(formData.entries());
         const response=await userLogin(formObject);
-        console.log(response);
-        if(response){
+        if(response.message=='success'){
             formRef.current.reset();
             setIsLoggedIn(true);
             navigate('/');
+        }else{
+            setError(response.message);
         }
     }
     return(
@@ -35,10 +39,12 @@ const Login=()=>{
                         <input type="password" name="password" className="form-control" id="password" placeholder="Password" required />
                     </div>
                     <button type="submit" className="btn btn-primary">Login</button>
-                    <div className="forgot-password">
-                        <a>Forgot password?</a>
-                    </div>
                 </form>
+                <p className="error-message">{error}</p>
+                <div className="sign-up">
+                        <h5>Not a user ?</h5>
+                        <NavLink to="../signup" className="link">SignUp</NavLink>
+                    </div>
             </div>
         </div>
     )

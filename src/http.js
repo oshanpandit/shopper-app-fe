@@ -119,6 +119,27 @@ export const deleteCartItem = async (id) => {
     }
   }
 
+  export const userSignUp=async(credentials)=>{
+     try{
+        const response=await fetch('http://localhost:8000/auth/signup',{
+           method:'POST',
+           headers:{
+             'Content-type':'application/json'
+           },
+           body:JSON.stringify(credentials),
+           credentials:'include'
+        });
+         const data=await response.json();
+         if(!response.ok){
+           throw new Error(data.message);
+         }
+         return data;
+     }catch(error){
+        console.error('can not sign-ip user',error);
+        return {message:error.message};
+     }
+  }
+
   export const userLogin=async(credentials)=>{
      try{
       const response=await fetch('http://localhost:8000/auth/login',{
@@ -130,13 +151,14 @@ export const deleteCartItem = async (id) => {
         body:JSON.stringify(credentials),
         credentials: 'include'
       });
+      const data=await response.json();
       if(!response.ok){
-        throw new Error('Network response was not ok');
+        throw new Error(data.message);
       }
-
-      return response;
+       return data;
      }catch(error){
        console.error('can not login user',error);
+       return {message:error.message};
      }
   }
 
