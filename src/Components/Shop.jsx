@@ -16,19 +16,19 @@ const Shop = () => {
         <h2>Deals of the Day</h2>
         <div className="deals-grid">
           <div className="deal-item">
-            <img src="../public/shop_placeholder.png" alt="Laptop Deal" />
+            <img src="../shop_placeholder.png" alt="Laptop Deal" />
             <span>Up to 30% off on Laptops</span>
           </div>
           <div className="deal-item">
-            <img src="../public/shop_placeholder.png" alt="Phone Deal" />
+            <img src="../shop_placeholder.png" alt="Phone Deal" />
             <span>Save big on Smartphones</span>
           </div>
           <div className="deal-item">
-            <img src="../public/shop_placeholder.png" alt="Headphones Deal" />
+            <img src="../shop_placeholder.png" alt="Headphones Deal" />
             <span>Best deals on Headphones</span>
           </div>
           <div className="deal-item">
-            <img src="../public/shop_placeholder.png" alt="TV Deal" />
+            <img src="../shop_placeholder.png" alt="TV Deal" />
             <span>Exclusive offers on Smart TVs</span>
           </div>
         </div>
@@ -39,19 +39,19 @@ const Shop = () => {
         <h2>Shop by Categories</h2>
         <div className="categories-grid">
           <div className="category-item">
-            <img src="../public/shop_placeholder.png" alt="Electronics" />
+            <img src="../shop_placeholder.png" alt="Electronics" />
             <span>Electronics</span>
           </div>
           <div className="category-item">
-            <img src="../public/shop_placeholder.png" alt="Fashion" />
+            <img src="../shop_placeholder.png" alt="Fashion" />
             <span>Fashion</span>
           </div>
           <div className="category-item">
-            <img src="../public/shop_placeholder.png" alt="Home Appliances" />
+            <img src="../shop_placeholder.png" alt="Home Appliances" />
             <span>Home Appliances</span>
           </div>
           <div className="category-item">
-            <img src="../public/shop_placeholder.png" alt="Books" />
+            <img src="../shop_placeholder.png" alt="Books" />
             <span>Books</span>
           </div>
         </div>
@@ -62,19 +62,19 @@ const Shop = () => {
         <h2>Shopper Prime Video - Popular Movies</h2>
         <div className="movies-grid">
           <div className="movie-item">
-            <img src="../public/shop_placeholder.png" alt="Movie 1" />
+            <img src="../shop_placeholder.png" alt="Movie 1" />
             <span>Movie Title 1</span>
           </div>
           <div className="movie-item">
-            <img src="../public/shop_placeholder.png" alt="Movie 2" />
+            <img src="../shop_placeholder.png" alt="Movie 2" />
             <span>Movie Title 2</span>
           </div>
           <div className="movie-item">
-            <img src="../public/shop_placeholder.png" alt="Movie 3" />
+            <img src="../shop_placeholder.png" alt="Movie 3" />
             <span>Movie Title 3</span>
           </div>
           <div className="movie-item">
-            <img src="../public/shop_placeholder.png" alt="Movie 4" />
+            <img src="../shop_placeholder.png" alt="Movie 4" />
             <span>Movie Title 4</span>
           </div>
         </div>
